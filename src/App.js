@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import React, { useState } from "react";
@@ -6,7 +6,7 @@ import bgMobile from "./images/bg-main-mobile.png";
 import bgDesktop from "./images/bg-main-desktop.png";
 import logo from "./images/card-logo.svg";
 import tick from "./images/icon-complete.svg";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 
 export default function App() {
   const [confirmed, setConfirmed] = useState(false);
@@ -40,7 +40,7 @@ export default function App() {
                     {name}
                   </li>
                   <li className="text-white text-base lg:text-xl tracking-widest">
-                    {format(new Date(date), "MM/yy")}
+                    {/* {format(new Date(date), "MM/yy")} */}
                   </li>
                 </ul>
               </div>
