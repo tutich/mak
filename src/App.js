@@ -12,8 +12,27 @@ export default function App() {
   const [confirmed, setConfirmed] = useState(false);
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
-  const [date, setDate] = useState("01/23");
+  const [date, setDate] = useState("");
   const [cvc, setCvc] = useState("");
+  const [error, setError] = useState('');
+
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+
+    // Check if the input is a number
+    if (!/^\d+$/.test(value)) {
+      setError('Wrong format, numbers only');
+    } else {
+      setError('');
+    }
+
+    setCardNumber(value);
+  };
+  const inputStyle = {
+    borderColor: error ? 'red' : 'initial',
+  };
+
 
   return (
     <>
@@ -72,18 +91,21 @@ export default function App() {
                 <div>
                   <label htmlFor="card_number">Card Number</label>
                   <input
+                    style={inputStyle}
                     type="text"
                     name="card_number"
                     id="card_number"
                     placeholder="e.g. 1234 5678 9012 3456"
                     required
                     maxLength={19}
-                    value={cardNumber
-                      .replace(/\s/g, "")
-                      .replace(/(\d{4})/g, "$1 ")
-                      .trim()}
-                    onChange={(e) => setCardNumber(e.target.value)}
+                    value={cardNumber}
+                      // .replace(/\s/g, "")
+                      // .replace(/(\d{4})/g, "$1 ")
+                      // .trim()}
+                    // onChange={(e) => setCardNumber(e.target.value)}
+                    onChange={handleInputChange}
                   />
+                  {error && <div style={{ color: 'red' }}>{error}</div>}
                 </div>
 
                 <article className="flex items-center justify-between gap-8">
