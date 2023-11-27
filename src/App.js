@@ -31,6 +31,24 @@ export default function App() {
   };
   const inputStyle = {
     borderColor: error ? 'red' : 'initial',
+    borderColor: confirmed && !name.trim() ? 'red' : 'initial',
+  };
+
+  const handleButtonClick = () => {
+    setConfirmed(true);
+
+    // Check if either input is empty
+    if (!name.trim() || !cardNumber.trim()) {
+      // Handle the case where inputs are empty
+      console.log('Inputs are empty. Set borders to red or show an error message.');
+      return;
+    }
+
+    // Handle other logic when the button is clicked with non-empty inputs
+    console.log('Button clicked with inputs:', name, cardNumber);
+  };
+  const inputStyleFirstName = {
+    borderColor: confirmed && !name.trim() ? 'red' : 'initial',
   };
 
 
@@ -78,6 +96,7 @@ export default function App() {
                 <div>
                   <label htmlFor="cardholder_name">Cardholder Name</label>
                   <input
+                  style={inputStyleFirstName}
                     type="text"
                     name="cardholder_name"
                     id="cardholder_name"
@@ -86,6 +105,7 @@ export default function App() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
+                  {confirmed && !name.trim() && <div style={{ color: 'red' }}>can't be blank.</div>}
                 </div>
 
                 <div>
@@ -106,6 +126,7 @@ export default function App() {
                     onChange={handleInputChange}
                   />
                   {error && <div style={{ color: 'red' }}>{error}</div>}
+                  {confirmed && !cardNumber.trim() && <div style={{ color: 'red' }}>can't be blank.</div>}
                 </div>
 
                 <article className="flex items-center justify-between gap-8">
@@ -136,8 +157,8 @@ export default function App() {
                     />
                   </div>
                 </article>
-
-                <button onClick={() => setConfirmed(true)} className="btn">
+                
+                <button onClick={handleButtonClick} className="btn">
                   Confirm
                 </button>
               </form>

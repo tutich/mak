@@ -41,7 +41,7 @@ form label {
 }
 
 form input {
-  @apply border-4 border-slate-300 py-3 px-4 rounded outline-none w-full;
+  @apply border-2 border-slate-300 py-3 px-4 rounded outline-none w-full;
   border-radius: 10px;
 }
 
