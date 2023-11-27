@@ -41,12 +41,14 @@ form label {
 }
 
 form input {
-  @apply border-2 border-slate-300 py-3 px-4 rounded outline-none w-full;
+  @apply border-4 border-slate-300 py-3 px-4 rounded outline-none w-full;
+  border-radius: 10px;
 }
 
 .btn {
   background-color: hsl(278, 68%, 11%);
   @apply py-3 px-6 rounded shadow text-white text-base tracking-wide lg:text-lg;
+  border-radius: 8px;
 }
 
 @media (min-width: 768px) {

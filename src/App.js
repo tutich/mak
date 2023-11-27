@@ -6,13 +6,13 @@ import bgMobile from "./images/bg-main-mobile.png";
 import bgDesktop from "./images/bg-main-desktop.png";
 import logo from "./images/card-logo.svg";
 import tick from "./images/icon-complete.svg";
-// import { format } from "date-fns";
+import { format } from "date-fns";
 
 export default function App() {
   const [confirmed, setConfirmed] = useState(false);
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState("01/23");
   const [cvc, setCvc] = useState("");
   const [error, setError] = useState('');
 
@@ -59,7 +59,7 @@ export default function App() {
                     {name}
                   </li>
                   <li className="text-white text-base lg:text-xl tracking-widest">
-                    {/* {format(new Date(date), "MM/yy")} */}
+                    {format(new Date(date), "MM/yy")}
                   </li>
                 </ul>
               </div>
